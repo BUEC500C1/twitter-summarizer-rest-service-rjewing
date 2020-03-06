@@ -25,7 +25,7 @@ class Config():
     API_IP = '0.0.0.0'
     API_PORT = 80
     API_PUBLIC_IP = get('https://api.ipify.org').text
-    API_HOSTNAME = subprocess.check_output("/usr/bin/dig -x {API_PUBLIC_IP} +short", shell=True)[0:-2].decode("ascii")
+    API_HOSTNAME = subprocess.check_output(f"/usr/bin/dig -x {API_PUBLIC_IP} +short", shell=True)[0:-2].decode("ascii")
 
     GMAIL_EMAIL = os.getenv('EC500_GMAIL_EMAIL')
     GMAIL_PASSWORD = os.getenv('EC500_GMAIL_PASSWORD')
