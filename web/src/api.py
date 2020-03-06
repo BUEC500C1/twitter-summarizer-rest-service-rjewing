@@ -39,6 +39,12 @@ queue_handler_thread = Thread(target=work_dispatcher, daemon=True, args=(process
 queue_handler_thread.start()
 
 
+# To verify that the server is up
+@app.route('/')
+def index():
+    return "Hello world!", 200
+
+
 @app.route('/display/<video_id>')
 def video_displayer(video_id):
     video_name = f"{video_id}.ogg"
