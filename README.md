@@ -58,6 +58,12 @@ curl localhost:5000/video?user=elonmusk&format=mp4
 ```
 This will encode the video into an MP4 video instead of an OGG video.
 
+Note: this can cause error with the display page, as it cannot detect your custom format. This will only work with the /videos/VIDEO_ID page to download the video IF you append your custom format. For example, if you chose mp4 as your format:
+
+```
+curl localhost:5000/videos/elonmusk-0123456789.mp4 --output elonmusk.mp4
+```
+
 ### Email
 The API can also send an email once the video is finished by adding the "email" parameter:
 ```
