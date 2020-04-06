@@ -59,6 +59,8 @@ def video_displayer(video_id):
 
 @app.route('/videos/<video_id>')
 def video_feed(video_id):
+    if "." not in video_id:
+        video_id = video_id + ".ogg"
     return send_from_directory(os.path.abspath(os.path.join(basedir, 'videos')), video_id, mimetype='video/ogg')
 
 
