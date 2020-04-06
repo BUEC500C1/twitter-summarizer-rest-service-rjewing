@@ -5,7 +5,7 @@ The API is running on an AWS EC2 instance inside of a docker container. I am usi
 
 The nginx container is used to forward the HTTP request on port 80 to gunicorn which runs the flask app. This way, I can easily add services to my application in the future by adding containers or making certain subdomains route to different ports using nginx.
 
-You can find the application at: `http://ec2-3-82-12-125.compute-1.amazonaws.com/`
+You can find the application at: `http://ec2-18-234-114-0.compute-1.amazonaws.com`.
 
 ## How To Use
 ### /
@@ -17,6 +17,13 @@ We can test the api by running:
 curl localhost:5000/video?user=elonmusk
 ```
 This will return a json object with a message letting you know that the video has been queued for processing and a URL to view the video which will be available when it finishes. 
+
+
+### /display
+If we browse to the display_url returned when queueing a new video, we can view the video directly in our browser. This is simpler than downloading the video if all you want to do is watch it.
+
+### /videos/VIDEO_ID
+This is the endpoint to download the video. It will download the video associated with the VIDEO_ID provided.
 
 ### /progress
 We can check the progress of the video on the "/progress" endpoint, which will tell us what step of the task it is on and when it finishes. The response looks as follows, where VIDEO_ID is the video UUID:
