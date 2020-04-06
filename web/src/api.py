@@ -57,7 +57,7 @@ def video_displayer(video_id):
     return html, 200
 
 
-@app.route('/video/<video_id>')
+@app.route('/videos/<video_id>')
 def video_feed(video_id):
     return send_from_directory(os.path.abspath(os.path.join(basedir, 'videos')), video_id, mimetype='video/ogg')
 
